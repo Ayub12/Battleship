@@ -15,7 +15,7 @@ public static class GameResources
 		NewFont("ArialLarge", "arial.ttf", 80);
 		NewFont("Courier", "cour.ttf", 14);
 		NewFont("CourierSmall", "cour.ttf", 8);
-		NewFont("Menu", "ffaccess.ttf", 8);
+		NewFont("Menu", "ffaccess.ttf", 12);
 	}
 
 	private static void LoadImages()
@@ -50,6 +50,7 @@ public static class GameResources
 		NewSound("Error", "error.wav");
 		NewSound("Hit", "hit.wav");
 		NewSound("Sink", "sink.wav");
+		NewSound("Siren", "siren.wav");
 		//NewSound("Siren", "siren.wav");
 		NewSound("Miss", "watershot.wav");
 		NewSound("Winner", "winner.wav");
