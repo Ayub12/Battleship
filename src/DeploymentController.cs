@@ -24,9 +24,13 @@ static class DeploymentController
 	private const int PLAY_BUTTON_LEFT = 693;
 
 	private const int PLAY_BUTTON_WIDTH = 80;
-	private const int UP_DOWN_BUTTON_LEFT = 410;
+	private const int UP_DOWN_BUTTON_LEFT = 80;
 
-	private const int LEFT_RIGHT_BUTTON_LEFT = 350;
+    // CODE: for AI load button
+    private const int AILOAD_BUTTON_LEFT = 553;
+    private const int AILOAD_BUTTONS_TOP = 400;
+
+    private const int LEFT_RIGHT_BUTTON_LEFT = 350;
 	private const int RANDOM_BUTTON_LEFT = 547;
 
 	private const int RANDOM_BUTTON_WIDTH = 51;
@@ -79,8 +83,12 @@ static class DeploymentController
 				_currentDirection = Direction.LeftRight;
 			} else if (UtilityFunctions.IsMouseInRectangle(RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP, RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT)) {
 				GameController.HumanPlayer.RandomizeDeployment();
-			}
-		}
+			} else if (SwinGame.MouseClicked(MouseButton.LeftButton) && UtilityFunctions.IsMouseInRectangle(AILOAD_BUTTON_LEFT - 140, AILOAD_BUTTONS_TOP + 150, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+            {
+                // CODE: for AI load button handling
+            }
+
+        }
 	}
 
 	/// <summary>
@@ -157,11 +165,16 @@ static class DeploymentController
 			SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP);
 			//SwinGame.FillRectangle(Color.LightBlue, PLAY_BUTTON_LEFT, PLAY_BUTTON_TOP, PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT)
 			//SwinGame.DrawText("PLAY", Color.Black, GameFont("Courier"), PLAY_BUTTON_LEFT + TEXT_OFFSET, PLAY_BUTTON_TOP)
-		}
+		}   // find out which screen is active,
 
 		SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
 
-		UtilityFunctions.DrawMessage();
+        // CODE: load AI load button
+        SwinGame.DrawBitmap(GameResources.GameImage("AILoadButton"), AILOAD_BUTTONS_TOP, AILOAD_BUTTON_LEFT);
+
+        UtilityFunctions.DrawMessage();
+		
+		
 	}
 
 	/// <summary>
